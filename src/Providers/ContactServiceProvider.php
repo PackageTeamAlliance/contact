@@ -5,7 +5,6 @@ use Illuminate\Support\ServiceProvider;
 
 class ContactServiceProvider extends ServiceProvider
 {
-    
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -25,8 +24,8 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot() {
-        
+    public function boot()
+    {
         $this->registerBindings();
         
         $this->registerConfig();
@@ -40,7 +39,6 @@ class ContactServiceProvider extends ServiceProvider
         $this->registerMigration();
         
         $this->registerRoutes();
-
     }
     
     /**
@@ -48,15 +46,13 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register() {
-        
+    public function register()
+    {
         foreach ($this->providers as $provider) {
-            
             $this->app->register($provider);
         }
         
         $this->registerConfig();
-    
     }
     
     /**
@@ -64,7 +60,8 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerBindings() {
+    protected function registerBindings()
+    {
     }
     
     /**
@@ -72,14 +69,13 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerConfig() {
-        
+    protected function registerConfig()
+    {
         $configPath = realpath(__DIR__ . '/../../config/config.php');
         
         $this->publishes([ $configPath => config_path('contact.php'), 'config']);
         
         $this->mergeConfigFrom($configPath, 'contact');
-        
     }
     
     /**
@@ -87,8 +83,8 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function registerViews() {
-        
+    public function registerViews()
+    {
         $this->loadViewsFrom(realpath(__DIR__ . '/../../resources/views'), 'pta/contact');
         
         $this->publishes([realpath(__DIR__ . '/../../resources/views') => base_path('resources/views/vendor/pta/contact'), ]);
@@ -99,21 +95,22 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function registerTranslations() {
-        
+    public function registerTranslations()
+    {
         $this->loadTranslationsFrom(realpath(__DIR__ . '/../../resources/lang'), 'pta/contact');
     }
     
-    public function registerMigration() {
-        
+    public function registerMigration()
+    {
         $this->publishes([realpath(__DIR__ . '/../../database/migrations') => database_path('/migrations') ], 'migrations');
     }
     
-    public function populateMenus() {
+    public function populateMenus()
+    {
     }
     
-    public function registerRoutes() {
-        
+    public function registerRoutes()
+    {
         $router = $this->app['router'];
         
         $prefix = $this->app['config']->get('contact.route_prefix', 'dashboard');
@@ -121,13 +118,11 @@ class ContactServiceProvider extends ServiceProvider
         $security = $this->app['config']->get('contact.security.protected', true);
         
         if (!$this->app->routesAreCached()) {
-            
             $group = [];
             
             $group['prefix'] = $prefix;
             
             if ($security) {
-                
                 $middleware = $this->app['config']->get('contact.security.middleware', ['auth', 'needsPermission']);
                 $permissions = $this->app['config']->get('contact.security.permission_name');
                 
@@ -136,12 +131,12 @@ class ContactServiceProvider extends ServiceProvider
             }
             
             // $router->group($group, function () use ($router) {
-                
+
             //     require realpath(__DIR__ . '/../routes.php');
             // });
         }
 
-    
+        
 
         $router->group([], function () use ($router) {
             
@@ -154,7 +149,8 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides() {
+    public function provides()
+    {
         return array();
     }
 }
