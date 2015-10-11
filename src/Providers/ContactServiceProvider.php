@@ -1,4 +1,5 @@
 <?php
+
 namespace Pta\Contact\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -136,10 +137,10 @@ class ContactServiceProvider extends ServiceProvider
             // });
         }
 
-        
+
 
         $router->group([], function () use ($router) {
-            
+
             require realpath(__DIR__ .'/../Http/frontend_routes.php');
         });
     }
