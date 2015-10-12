@@ -21,9 +21,6 @@
 					<li><i class="fa fa-phone"></i> Telephone: (805) 489-2831</li>
 					<li><i class="fa fa-envelope"></i> Email: <a href="mailto:support@westcottcourses.com">Support</a></li>
 				</ul>
-
-				<hr>
-
 			</div>
 		</aside>
 
@@ -39,8 +36,62 @@
 			</p>
 			<hr> -->
 			<h4>General Enquire or Support</h4>
+			<div id="message-contact"></div>
+			{{-- Start  --}}
+			<form method="post" action="{{route('contact.frontend.process')}}" id="contactform" class="@if (count($errors) > 0) has-errors @endif"">
+				{!! csrf_field() !!}
+				<div class="row">
+					
+					<div class="form-group col-md-6 @if($errors->first('first_name')) has-error @endif">
+						<label for="first_name">First Name <span class="required">* </span></label>
+						<input type="text" class="form-control" id="first_name" placeholder="First Name" value="{{old('first_name', '')}}">
+						<span class="help-block">{{{$errors->first('first_name')}}}</span>
+					</div>
 
+					<div class="form-group col-md-6 @if($errors->first('last_name')) has-error @endif">
+						<label for="last_name">Last Name <span class="required">* </span></label>
+						<input type="text" class="form-control" id="last_name" placeholder="Last Name" value="{{old('last_name', '')}}">
+						<span class="help-block">{{{$errors->first('last_name')}}}</span>
+					</div>
 
+					<div class="form-group col-md-6 @if($errors->first('email')) has-error @endif">
+						<label for="email">Email <span class="required">* </span></label>
+						<input type="email" class="form-control" id="email" placeholder="Email" value="{{old('email', '')}}">
+						<span class="help-block">{{{$errors->first('email')}}}</span>
+					</div>
+
+					<div class="form-group col-md-6 @if($errors->first('phone')) has-error @endif">
+						<label for="phone">Phone</label>
+						<input type="text" class="form-control" id="phone_number" placeholder="Phone" value="{{old('phone', '')}}">
+						<span class="help-block">{{{$errors->first('phone')}}}</span>
+					</div>
+
+					<div class="form-group col-md-6 @if($errors->first('subject')) has-error @endif">
+						<label for="subject">Select a subject <span class="required">* </span></label>
+						<select class="form-control" name="subject" id="subject">
+							<option value="">---</option>
+							@foreach (config('contact.contact_form_subjects') as $subject)
+							<option value="{{{$subject}}}" @if(old('subject') === $subject) selected @endif>{{{$subject}}}</option>
+							@endforeach
+						</select>
+
+						<span class="help-block">{{{$errors->first('subject')}}}</span>
+					</div>
+
+					<div class="form-group col-md-6"></div>
+
+					<div class="form-group col-md-12 @if($errors->first('message')) has-error @endif">
+						<label for="phone">Message <span class="required">* </span></label>
+						<textarea class="form-control" rows="5">{{{old('message')}}}</textarea>
+						<span class="help-block">{{{$errors->first('message')}}}</span>
+					</div>
+
+					<div class="col-md-12">
+						<input type="submit" id="submit-contact" value="Submit" class="button_medium">
+					</div>
+				</div>
+
+			</form>
 		</div><!-- end col right-->
 	</section>
 </div><!-- end row-->
