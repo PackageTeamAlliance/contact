@@ -41,6 +41,11 @@
 			<form method="post" action="{{route('contact.frontend.process')}}" id="contactform" class="@if (count($errors) > 0) has-errors @endif">
 				{!! csrf_field() !!}
 				<input type="hidden" name="type" value="contact">
+				@if (Auth::user())
+				<input type="hidden" name="user_id" value="{{{Auth::user()->id}}}">
+				@else
+				<input type="hidden" name="user_id" value="0">
+				@endif
 				<div class="row">
 					
 					<div class="form-group col-md-6 @if($errors->first('first_name')) has-error @endif">
