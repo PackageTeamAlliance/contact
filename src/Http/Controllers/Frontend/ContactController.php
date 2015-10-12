@@ -12,13 +12,12 @@ class ContactController extends Controller
 {
     use DispatchesJobs, ValidatesRequests;
     
-	private $contact;
+    private $contact;
 
-	public function __construct(ContactRepositoryInterface $contact)
-	{
-		$this->contact = $contact;
-	}
-
+    public function __construct(ContactRepositoryInterface $contact)
+    {
+        $this->contact = $contact;
+    }
 
     public function contact()
     {
@@ -27,6 +26,6 @@ class ContactController extends Controller
 
     public function contact_process(ContactFormRequest $request)
     {
-		$this->contact->store(null, $request->all());
+        $this->contact->store(null, $request->all());
     }
 }
