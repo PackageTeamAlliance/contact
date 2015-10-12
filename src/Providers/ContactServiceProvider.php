@@ -3,6 +3,7 @@
 namespace Pta\Contact\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Pta\Contact\Providers\DataServiceProvider;
 
 class ContactServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,7 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $providers = [];
+    protected $providers = [DataServiceProvider::class];
     
     /**
      * Boot the application events.
