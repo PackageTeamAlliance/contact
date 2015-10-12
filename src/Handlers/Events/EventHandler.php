@@ -41,7 +41,7 @@ class EventHandler
 
         $this->mail->send('pta/contact::frontend.contact_email', ['contact' => $contact ], function ($message) use ($contact) {
 
-            $message->from($contact->email, $contact->first_name);
+            $message->from($this->config['from_contact_email'], $this->config['from_contact_name']);
             $message->subject($contact->subject);
             $message->to($this->config['send_contact_emails_to']);
             $message->replyTo($contact->email, $contact->first_name);
