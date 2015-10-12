@@ -4,6 +4,7 @@ namespace Pta\Contact\Http\Controllers\Frontend;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Pta\Contact\Http\Requests\ContactFormRequest;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class ContactController extends Controller
@@ -15,7 +16,7 @@ class ContactController extends Controller
         return view('pta/contact::frontend.contact');
     }
 
-    public function contact_process()
+    public function contact_process(ContactFormRequest $request)
     {
     }
 }
