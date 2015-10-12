@@ -19,7 +19,6 @@ class EventHandler
         $this->mail = $mail;
     }
 
-
     /**
      * Register the listeners for the subscriber.
      *
@@ -40,9 +39,12 @@ class EventHandler
             return;
         }
 
-        $this->mail->queue('pta/contact::frontend.contact_email', [], function ($message) use ($contact) {
-            $message->sender('yazjallad@gmail.com', "Yaz");
-            $message->to($contact->email, $contact->first_name);
+        $this->mail->send('pta/contact::frontend.contact_email', ['contact' => $contact ], function ($message) use ($contact) {
+
+            $message->from($contact->email, $contact->first_name);
+            $message->subject($contact->subject);
+            $message->to($this->config['send_contact_emails_to']);
+            $message->replyTo($contact->email, $contact->first_name);
         });
     }
 }
