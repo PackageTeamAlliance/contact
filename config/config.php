@@ -5,8 +5,11 @@ return [
   
   'send_message' => true,
   'contact_page_uri' => 'contact',
-  'send_support_emails_to' => ['yazjallad@gmail.com'],
-  'send_contact_emails_to' => ['yazjallad@gmail.com'],
+  'send_support_emails_to' => ['yj@ninjaparade.ca'],
+  
+  'send_contact_emails_to' => ['yj@ninjaparade.ca', 'dr.parham@gmail.com'],
+  'from_contact_name' => 'Westcott Courses Support',
+  'from_contact_email' => 'support@westcottcourses.com',
   'contact_form_subjects' => [
       'New Student Advising',
       'Existing Student Support',
@@ -16,7 +19,6 @@ return [
       'Other',
     ],
   'support_form_subjects' => ['I NEED YOUR HALP!', 'I NEED YOUR HALP 2!',],
-
 
    /*
      * Default prefix to the dashboard.
