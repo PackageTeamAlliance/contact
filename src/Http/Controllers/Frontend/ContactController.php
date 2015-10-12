@@ -10,6 +10,8 @@ use Pta\Contact\Repositories\ContactRepositoryInterface;
 
 class ContactController extends Controller
 {
+    use DispatchesJobs, ValidatesRequests;
+    
 	private $contact;
 
 	public function __construct(ContactRepositoryInterface $contact)
@@ -17,7 +19,6 @@ class ContactController extends Controller
 		$this->contact = $contact;
 	}
 
-    use DispatchesJobs, ValidatesRequests;
 
     public function contact()
     {
