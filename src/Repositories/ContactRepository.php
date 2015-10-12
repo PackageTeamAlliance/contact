@@ -23,8 +23,7 @@ class ContactRepository implements ContactRepositoryInterface
         $this->setModel(get_class($app[Message::class]));
     }
 
-
-        /**
+	/**
      * {@inheritDoc}
      */
     public function store($id, array $input)
@@ -37,7 +36,6 @@ class ContactRepository implements ContactRepositoryInterface
      */
     public function create(array $input)
     {
-        
         // Create a new contact
         $contact = $this->createModel();
         
