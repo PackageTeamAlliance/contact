@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Pta\Contact\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ContactRequest extends Request
+class ContactFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class ContactRequest extends Request
           'last_name' => 'required',
           'email' => 'required|email',
           'subject' => 'required',
-          'subject' => 'required',
+          'message' => 'required',
           'phone' => 'numeric',
         ];
     }
