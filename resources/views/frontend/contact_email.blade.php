@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Re {{$contact->subject}}</title>
 </head>
 <body>
-	<h1>Email sent</h1>
+	{{$contact->first_name}} said : <br>
+	{{$contact->message}}
 </body>
 </html>
