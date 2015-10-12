@@ -38,31 +38,32 @@
 			<h4>General Enquire or Support</h4>
 			<div id="message-contact"></div>
 			{{-- Start  --}}
-			<form method="post" action="{{route('contact.frontend.process')}}" id="contactform" class="@if (count($errors) > 0) has-errors @endif"">
+			<form method="post" action="{{route('contact.frontend.process')}}" id="contactform" class="@if (count($errors) > 0) has-errors @endif">
 				{!! csrf_field() !!}
+				<input type="hidden" name="type" value="contact">
 				<div class="row">
 					
 					<div class="form-group col-md-6 @if($errors->first('first_name')) has-error @endif">
 						<label for="first_name">First Name <span class="required">* </span></label>
-						<input type="text" class="form-control" id="first_name" placeholder="First Name" value="{{old('first_name', '')}}">
+						<input type="text" class="form-control" name="first_name" placeholder="First Name" value="{{old('first_name', '')}}">
 						<span class="help-block">{{{$errors->first('first_name')}}}</span>
 					</div>
 
 					<div class="form-group col-md-6 @if($errors->first('last_name')) has-error @endif">
 						<label for="last_name">Last Name <span class="required">* </span></label>
-						<input type="text" class="form-control" id="last_name" placeholder="Last Name" value="{{old('last_name', '')}}">
+						<input type="text" class="form-control" name="last_name" placeholder="Last Name" value="{{old('last_name', '')}}">
 						<span class="help-block">{{{$errors->first('last_name')}}}</span>
 					</div>
 
 					<div class="form-group col-md-6 @if($errors->first('email')) has-error @endif">
 						<label for="email">Email <span class="required">* </span></label>
-						<input type="email" class="form-control" id="email" placeholder="Email" value="{{old('email', '')}}">
+						<input type="email" class="form-control" name="email" placeholder="Email" value="{{old('email', '')}}">
 						<span class="help-block">{{{$errors->first('email')}}}</span>
 					</div>
 
 					<div class="form-group col-md-6 @if($errors->first('phone')) has-error @endif">
 						<label for="phone">Phone</label>
-						<input type="text" class="form-control" id="phone_number" placeholder="Phone" value="{{old('phone', '')}}">
+						<input type="text" class="form-control" name="phone" placeholder="Phone" value="{{old('phone', '')}}">
 						<span class="help-block">{{{$errors->first('phone')}}}</span>
 					</div>
 
@@ -82,7 +83,7 @@
 
 					<div class="form-group col-md-12 @if($errors->first('message')) has-error @endif">
 						<label for="phone">Message <span class="required">* </span></label>
-						<textarea class="form-control" rows="5">{{{old('message')}}}</textarea>
+						<textarea class="form-control" rows="5" name="message">{{{old('message')}}}</textarea>
 						<span class="help-block">{{{$errors->first('message')}}}</span>
 					</div>
 
