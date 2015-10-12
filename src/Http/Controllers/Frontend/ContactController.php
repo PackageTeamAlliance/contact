@@ -6,9 +6,17 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Pta\Contact\Http\Requests\ContactFormRequest;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Pta\Contact\Repositories\ContactRepositoryInterface;
 
 class ContactController extends Controller
 {
+	private $contact;
+
+	public function __construct(ContactRepositoryInterface $contact)
+	{
+		$this->contact = $contact;
+	}
+
     use DispatchesJobs, ValidatesRequests;
 
     public function contact()
@@ -18,5 +26,6 @@ class ContactController extends Controller
 
     public function contact_process(ContactFormRequest $request)
     {
+		$this->contact->store(null, $request->all());
     }
 }
