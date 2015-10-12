@@ -7,7 +7,14 @@ return [
   'contact_page_uri' => 'contact',
   'send_support_emails_to' => ['yazjallad@gmail.com'],
   'send_contact_emails_to' => ['yazjallad@gmail.com'],
-  'contact_form_subjects' => ['I WANT YOUR HALP CONTACT', 'I WANT YOUR HALP CONTACT 2'],
+  'contact_form_subjects' => [
+      'New Student Advising',
+      'Existing Student Support',
+      'Transcript Request',
+      'Non-Credit Certificate Request',
+      'Course Request',
+      'Other',
+    ],
   'support_form_subjects' => ['I NEED YOUR HALP!', 'I NEED YOUR HALP 2!',],
 
 
