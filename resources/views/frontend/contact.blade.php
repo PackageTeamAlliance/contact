@@ -16,8 +16,14 @@
 		<aside class="col-md-4">
 			<div class="col-left">
 				<h3>Address</h3>
-				<ul>
-					<li><i class="fa fa-home"></i> @content('site-name') <br />PO Box 835 Pismo Beach, Ca. 93448</li>
+				<ul class="list clearfix">
+					<li><i class="fa fa-home"></i>
+						<address>
+							<strong>@content('site-name')</strong><br>
+							PO Box 835<br>
+							Pismo Beach, CA 93448<br>
+						</address>
+					</li>
 					<li><i class="fa fa-phone"></i> Telephone: (805) 489-2831</li>
 					<li><i class="fa fa-envelope"></i> Email: <a href="mailto:support@westcottcourses.com">Support</a></li>
 				</ul>
