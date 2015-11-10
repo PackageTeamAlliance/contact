@@ -41,7 +41,7 @@
 				If you need to reach us please use the form below or call us at (805) 489-2831.
 			</p>
 			<hr> -->
-			<h4>General Enquire or Support</h4>
+			<h4>General Inquire or Support</h4>
 			<div id="message-contact"></div>
 			{{-- Start  --}}
 			<form method="post" action="{{route('contact.frontend.process')}}" id="contactform" class="@if (count($errors) > 0) has-errors @endif">
