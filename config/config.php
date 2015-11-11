@@ -5,9 +5,9 @@ return [
   
   'send_message' => true,
   'contact_page_uri' => 'contact',
-  'send_support_emails_to' => ['yj@ninjaparade.ca'],
+  'send_support_emails_to' => ['support@westcottcourses.com'],
   
-  'send_contact_emails_to' => ['yj@ninjaparade.ca', 'dr.parham@gmail.com'],
+  'send_contact_emails_to' => ['support@westcottcourses.com', 'support@westcottcourses.com'],
   'from_contact_name' => 'Westcott Courses Support',
   'from_contact_email' => 'support@westcottcourses.com',
   'contact_form_subjects' => [

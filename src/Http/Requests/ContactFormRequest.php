@@ -29,7 +29,6 @@ class ContactFormRequest extends Request
           'email' => 'required|email',
           'subject' => 'required',
           'message' => 'required',
-          'phone' => 'numeric',
         ];
     }
 }
