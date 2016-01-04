@@ -32,7 +32,7 @@ return [
      */
     'security' => [
         'protected'          => false,
-        'middleware'         => ['auth','needsPermission'],
+        'middleware'         => ['web','needsPermission'],
         'permission_name'    => 'contact.dashboard.manage',
     ],
 
