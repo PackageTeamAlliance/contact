@@ -125,15 +125,8 @@ class ContactServiceProvider extends ServiceProvider
             $group['prefix'] = $prefix;
             
             if ($security) {
-                
                 $group['middleware'] = config('contact.security.middleware');
-                // $group['can'] = config('contact.security.permission_name', $permissions);
             }
-            
-            // $router->group($group, function () use ($router) {
-
-            //     require realpath(__DIR__ . '/../routes.php');
-            // });
         }
 
 
