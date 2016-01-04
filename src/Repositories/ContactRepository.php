@@ -2,7 +2,7 @@
 
 namespace Pta\Contact\Repositories;
 
-use Cartalyst\Support\Traits;
+use Pta\Contact\Traits;
 use Pta\Contact\Models\Message;
 use Illuminate\Container\Container;
 use Pta\Contact\Repositories\ContactRepositoryInterface;
