@@ -44,9 +44,10 @@
 
 			<h4>General Enquire or Support</h4>
 			<div id="message-contact"></div>
-			{{-- Start  --}}
+			
 			{!! BootForm::open()->action( route('contact.frontend.process') )->attribute('id', 'contactform')->post() !!}
-			{{-- <form method="post" action="{{route('')}}" id="contactform" class="@if (count($errors) > 0) has-errors @endif"> --}}
+			{!! BootForm::hidden('user_id', 'user_id')->value(Auth::user()->id ? : 0) !!}
+			{!! BootForm::hidden('contact', 'contact')->value('contact') !!}
 			{!! BootForm::text('First Name', 'first_name')->value(old('first_name', ''))->attribute('id', 'first_name') !!}
 			{!! BootForm::text('Last Name', 'last_name')->value(old('last_name', ''))->attribute('id', 'last_name') !!}
 			{!! BootForm::email('Email', 'email')->value(old('email', ''))->attribute('id', 'email') !!}
@@ -55,9 +56,9 @@
 			{!! BootForm::select('Subject', 'subject')->options(config('contact.contact_form_subjects'))->select(old('subject', '')); !!}
 			{!! BootForm::submit('Submit') !!}
 			{!! BootForm::close() !!}
-		</div><!-- end col right-->
-	</section>
-</div><!-- end row-->
+			</div><!-- end col right-->
+		</section>
+	</div><!-- end row-->
 </div><!-- end container-->
 @stop
 
