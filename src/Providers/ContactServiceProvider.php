@@ -115,9 +115,9 @@ class ContactServiceProvider extends ServiceProvider
     {
         $router = $this->app['router'];
         
-        $prefix = $this->app['config']->get('contact.route_prefix', 'dashboard');
+        $prefix = config('contact.route_prefix', 'dashboard');
         
-        $security = $this->app['config']->get('contact.security.protected', true);
+        $security = config('contact.security.protected', true);
         
         if (!$this->app->routesAreCached()) {
             $group = [];
@@ -125,11 +125,9 @@ class ContactServiceProvider extends ServiceProvider
             $group['prefix'] = $prefix;
             
             if ($security) {
-                $middleware = $this->app['config']->get('contact.security.middleware', ['auth', 'needsPermission']);
-                $permissions = $this->app['config']->get('contact.security.permission_name');
                 
-                $group['middleware'] = $this->app['config']->get('contact.security.middleware', $middleware);
-                $group['can'] = $this->app['config']->get('contact.security.permission_name', $permissions);
+                $group['middleware'] = config('contact.security.middleware');
+                // $group['can'] = config('contact.security.permission_name', $permissions);
             }
             
             // $router->group($group, function () use ($router) {
@@ -140,7 +138,7 @@ class ContactServiceProvider extends ServiceProvider
 
 
 
-        $router->group([], function () use ($router) {
+        $router->group(['middleware' => 'web'], function () use ($router) {
 
             require realpath(__DIR__ .'/../Http/frontend_routes.php');
         });
