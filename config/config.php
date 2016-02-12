@@ -17,7 +17,15 @@ return [
       'Non-Credit Certificate Request',
       'Course Request',
       'Other',
-    ],
+  ],
+  'contact_rules' => [
+    'first_name' => 'required',
+    'last_name' => 'required',
+    'email' => 'required|email',
+    'subject' => 'required',
+    'message' => 'required',
+  ],
+
   'support_form_subjects' => ['I NEED YOUR HALP!', 'I NEED YOUR HALP 2!',],
 
    /*
@@ -42,53 +50,7 @@ return [
             'readable_name' => 'Manage Messages',
         ]
     ],
-
-    'navigation' => [
-    [
-        'menu_id'  => -1,
-        'order'    => 0,
-        'dropdown' => 1,
-        'submenu'  => 0,
-        'active'   => 1,
-        'name'     => 'Contact',
-        'icon'     => '',
-        'route'    => '',
-        'title'    => 'Contact',
-        'roles'    => -1,
-        'children' => [
-            [
-                'menu_id'  => -1,
-                'order'    => 2,
-                'dropdown' => 0,
-                'submenu'  => 1,
-                'parent'   => -1,
-                'active'   => 1,
-                'icon'     => '',
-                'header'   => '',
-                'route'    => 'contact.dashboard.messages',
-                'name'     => 'Contact Messages',
-                'title'    => 'Contact Messages',
-                'roles'    => -1,
-            ],
-            [
-                'menu_id'  => -1,
-                'order'    => 1,
-                'dropdown' => 0,
-                'submenu'  => 1,
-                'parent'   => -1,
-                'active'   => 1,
-                'icon'     => '',
-                'header'   => '',
-                'route'    => 'contact.dashboard.support',
-                'name'     => 'Support Messages',
-                'title'    => 'Support Messages',
-                'roles'    => -1,
-            ]
-        
-        ]
-
-        ]
-    ],
+  
     /*
      * Default url used to redirect user to front/admin of your the system.
      */
