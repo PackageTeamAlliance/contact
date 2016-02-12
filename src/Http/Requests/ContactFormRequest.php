@@ -23,12 +23,6 @@ class ContactFormRequest extends Request
      */
     public function rules()
     {
-        return [
-          'first_name' => 'required',
-          'last_name' => 'required',
-          'email' => 'required|email',
-          'subject' => 'required',
-          'message' => 'required',
-        ];
+        return config('contact.contact_rules');
     }
 }
