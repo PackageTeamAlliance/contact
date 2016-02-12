@@ -46,7 +46,11 @@
 			<div id="message-contact"></div>
 			
 			{!! BootForm::open()->action( route('contact.frontend.process') )->attribute('id', 'contactform')->post() !!}
+			@if(Auth::user())
 			{!! BootForm::hidden('user_id', 'user_id')->value(Auth::user()->id ? : 0) !!}
+			@else
+			{!! BootForm::hidden('user_id', 'user_id')->value(0) !!}
+			@endif
 			{!! BootForm::hidden('contact', 'contact')->value('contact') !!}
 			{!! BootForm::text('First Name', 'first_name')->value(old('first_name', ''))->attribute('id', 'first_name') !!}
 			{!! BootForm::text('Last Name', 'last_name')->value(old('last_name', ''))->attribute('id', 'last_name') !!}
@@ -56,9 +60,9 @@
 			{!! BootForm::select('Subject', 'subject')->options(config('contact.contact_form_subjects'))->select(old('subject', '')); !!}
 			{!! BootForm::submit('Submit') !!}
 			{!! BootForm::close() !!}
-			</div><!-- end col right-->
-		</section>
-	</div><!-- end row-->
+		</div><!-- end col right-->
+	</section>
+</div><!-- end row-->
 </div><!-- end container-->
 @stop
 
