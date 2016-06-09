@@ -26,8 +26,11 @@ class ContactController extends Controller
 
     public function contact_process(ContactFormRequest $request)
     {
-        $this->contact->store(null, $request->all());
-
-        return back()->withFlashSuccess('Your message has been successfully sent');
+        if ($this->contact->store(null, $request->all())) {
+            if ($request->ajax()) {
+                return ['status' => 200, 'message' => 'Your message has been successfully sent' ];
+            }
+            return back()->withFlashSuccess('Your message has been successfully sent');
+        }
     }
 }
